@@ -1,0 +1,66 @@
+body {
+    background-color: #e4e8ea;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+#content {
+    max-width: 70%;
+    margin-left: 15%;
+    border-radius: 4px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(156, 154, 154, 0.75);
+    border: none;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+#header {
+    text-align: center;
+    color: #0091ea;
+}
+
+#text-table {
+    margin-top: 10px;
+    border: none;
+}
+
+/* text inputs */
+#text-0, #text-1 {
+    resize: none;
+}
+
+/* Remove bootstrap horizontal line */
+.borderless > thead > tr > th,
+.borderless > tbody > tr > th,
+.borderless > tfoot > tr > th,
+.borderless > thead > tr > td,
+.borderless > tbody > tr > td,
+.borderless > tfoot > tr > td {
+    border-top: none;
+}
+
+@media screen and (max-width: 1000px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    #header {
+        margin-top: 0;
+    }
+
+    #content {
+        max-width: 90%;
+        margin: 5%;
+    }
+
+    #text-0, #text-1 {
+        height: 15em;
+    }
+}
