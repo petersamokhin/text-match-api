@@ -1,30 +1,27 @@
 const express = require('express');
 const engine = require('consolidate');
 const app = express();
+const logger = require('morgan');
+const fuzz = require('fuzzball');
 
+app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.set('views', __dirname + '/public');
 app.set('view engine', 'html');
 app.engine('html', engine.mustache);
 app.use(express.static(__dirname + '/public'));
-
 app.use(errorHandler);
-
-const fuzz = require('fuzzball');
-
-const tokens = ['4ed935d550ccd355c32b55f7e0b5305bdcf4a1bb', '1439a69802b7b0c29e70f70240c1d994fa6b849c', '86a1d65ebdff153878b814d30bcf3e98e7cf0aaa'];
 
 app.get('/text-matcher', function (req, res) {
     res.render('index')
 });
-
 app.post('/text-matcher', function (req, res) {
     let start = now();
     let json = req.body;
     let query = req.query;
 
-    if (tokens.indexOf(query.access_token) === -1) {
+    if (!query.access_token || query.access_token.length < 1) {
         res.statusCode = 403;
         res.send(err('access_token is required!', json, query, now() - start));
         return
