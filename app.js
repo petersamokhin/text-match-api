@@ -10,7 +10,7 @@ app.set('view engine', 'html');
 app.engine('html', engine.mustache);
 app.use(express.static(__dirname + '/public'));
 
-app.use('/', mainRouter);
+app.use('/text-matcher', mainRouter);
 app.use(errorHandler);
 
 const port = 3001;
