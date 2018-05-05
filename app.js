@@ -16,10 +16,7 @@ app.use(errorHandler);
 const port = 3001;
 app.listen(3001, () => console.log('Text matcher listening on port ' + port + '!'));
 
-function errorHandler (err, req, res) {
-    console.log(err);
-    console.log(req);
-    console.log(res);
+function errorHandler (err, req, res, next) {
     res.status(err.statusCode || 500);
     res.send({ result: 'failed', error: err })
 }
