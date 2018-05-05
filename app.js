@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/text-matcher', mainRouter);
+app.use('/', mainRouter);
 app.use(errorHandler);
 
 const port = 3001;
