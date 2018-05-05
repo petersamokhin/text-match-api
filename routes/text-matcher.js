@@ -4,11 +4,11 @@ const fuzz = require('fuzzball');
 
 const tokens = ['4ed935d550ccd355c32b55f7e0b5305bdcf4a1bb', '1439a69802b7b0c29e70f70240c1d994fa6b849c', '86a1d65ebdff153878b814d30bcf3e98e7cf0aaa'];
 
-router.get('/', function (req, res) {
+router.get('/text-matcher', function (req, res) {
     res.render('index')
 });
 
-router.post('/', function (req, res) {
+router.post('/text-matcher', function (req, res) {
     let start = now();
     let json = req.body;
     let query = req.query;
